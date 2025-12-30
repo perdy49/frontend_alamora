@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { getPublicNews } from "../../services/newsService";
 
-const IMG_BASE = "http://localhost:5000/uploads";
+const BASE_BACKEND_URL = import.meta.env.VITE_API_URL.replace("/api", "");
+const IMG_BASE = `${BASE_BACKEND_URL}/uploads`;
 const PLACEHOLDER = "https://via.placeholder.com/400x300?text=No+Image";
 
 export default function WisataPage() {

@@ -14,6 +14,7 @@ import {
 } from "../../services/eventService";
 
 export default function CrudEventPage() {
+  const BASE_BACKEND_URL = import.meta.env.VITE_API_URL.replace("/api", "");
   const [events, setEvents] = useState([]);
   const [newsEditingId, setNewsEditingId] = useState(null);
   const [newsImagePreview, setNewsImagePreview] = useState(null);
@@ -68,7 +69,7 @@ export default function CrudEventPage() {
     });
 
     if (e.image) {
-      setImagePreview(`http://localhost:5000/uploads/${e.image}`);
+      setImagePreview(`${BASE_BACKEND_URL}/uploads/${e.image}`);
     } else {
       setImagePreview(null);
     }
@@ -412,7 +413,7 @@ const handleDeleteNews = async (id) => {
                   <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                     {event.image && (
                       <img
-                        src={`http://localhost:5000/uploads/${event.image}`}
+                        src={`${BASE_BACKEND_URL}/uploads/${event.image}`}
                         className="w-full sm:w-24 h-40 sm:h-24 rounded object-cover"
                       />
                     )}

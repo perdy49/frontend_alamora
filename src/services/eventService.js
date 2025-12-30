@@ -1,5 +1,8 @@
 import api from "./api";
 
+// 🔑 ambil base backend URL (tanpa /api)
+const BASE_BACKEND_URL = import.meta.env.VITE_API_URL.replace("/api", "");
+
 export const getEvents = async () => {
   const res = await api.get("/events");
   return res.data;
@@ -10,10 +13,9 @@ export const getPublicEvents = async () => {
 
   return res.data.map((event) => ({
     ...event,
-    image: event.image ? `http://localhost:5000/uploads/${event.image}` : null
+    image: event.image ? `${BASE_BACKEND_URL}/uploads/${event.image}` : null
   }));
 };
-
 
 export const createEvent = async (data) => {
   const res = await api.post("/events", data, {
@@ -32,7 +34,6 @@ export const updateEvent = async (id, data) => {
   });
   return res.data;
 };
-
 
 export const deleteEvent = async (id) => {
   const res = await api.delete(`/events/${id}`);

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
+import api from "../../services/api";
 import { Link } from "react-router-dom";
 
 // Images
@@ -69,11 +70,16 @@ export default function Register() {
     setMsg("");
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/register", {
+      const res = await api.post("/auth/register", {
         username,
         email,
         password
       });
+      // const res = await axios.post("http://localhost:5000/api/auth/register", {
+      //   username,
+      //   email,
+      //   password
+      // });
 
       setMsg("Akun berhasil dibuat. Silakan login.");
     } catch (err) {

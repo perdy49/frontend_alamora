@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { getPublicEvents } from "../../services/eventService";
 
 const HomePage = () => {
+  const BASE_BACKEND_URL = import.meta.env.VITE_API_URL.replace("/api", "");
   const PLACEHOLDER =
     "data:image/svg+xml;utf8,\
   <svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'>\
@@ -15,7 +16,7 @@ const HomePage = () => {
   const getImageUrl = (image) => {
     if (!image) return PLACEHOLDER;
     if (image.startsWith("http")) return image;
-    return `http://localhost:5000/uploads/${image}`;
+    return `${BASE_BACKEND_URL}/uploads/${image}`;
   };
 
   const [events, setEvents] = useState([]);

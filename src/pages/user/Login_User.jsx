@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
+import api from "../../services/api";
 import { Link, useNavigate } from "react-router-dom";
 import googleIcon from "../../assets/Images/google.svg";
 import facebookIcon from "../../assets/Images/facebook.svg";
@@ -71,10 +72,15 @@ export default function Login() {
     setMsg("");
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
-        email: username, // tetap kirim sebagai email (backend aman)
+      const res = await api.post("/auth/login", {
+        email: username,
         password
       });
+      // const res = await axios.post("http://localhost:5000/api/auth/login", {
+      //   email: username, // tetap kirim sebagai email (backend aman)
+      //   password
+      // });
+
 
       localStorage.setItem("token", res.data.token);
       navigate("/user/home");

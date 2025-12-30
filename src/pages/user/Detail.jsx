@@ -5,6 +5,7 @@ import api from "../../services/api";
 import { createTransaction } from "../../services/transactionService";
 
 const DetailWisata = () => {
+  const BASE_BACKEND_URL = import.meta.env.VITE_API_URL.replace("/api", "");
   const { id } = useParams(); // 🔑 ambil id dari URL
   const [event, setEvent] = useState(null);
 
@@ -84,7 +85,7 @@ const DetailWisata = () => {
           </NavLink>
 
           <img
-            src={`http://localhost:5000/uploads/${event.image}`}
+            src={`${BASE_BACKEND_URL}/uploads/${event.image}`}
             className="w-full h-[420px] object-cover rounded-xl"
           />
 
