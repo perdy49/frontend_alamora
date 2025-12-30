@@ -12,9 +12,9 @@ export default defineConfig({
       }
     })
   ],
-  server: {
-    proxy: {
-      "/api": "http://localhost:5000" // 🔥 otomatis forward ke backend Express
-    }
-  }
+  // server: {
+  //   proxy: {
+  //     "/api": "http://localhost:5000" // 🔥 otomatis forward ke backend Express
+  //   }
+  // }
 });
