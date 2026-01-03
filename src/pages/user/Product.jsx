@@ -2,6 +2,8 @@ import { Search, ShoppingCart, User, ChevronDown } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { getPublicEvents } from "../../services/eventService";
+import logo from "../../assets/Images/logo1.png";
+
 
 const HomePage = () => {
   const BASE_BACKEND_URL = import.meta.env.VITE_API_URL.replace("/api", "");
@@ -38,7 +40,7 @@ const HomePage = () => {
         >
           Alamora
           <img
-            src="/src/assets/Images/logo1.png"
+            src={logo}
             alt="Logo"
             className="w-8 h-8 object-cover rounded-full"
           />
