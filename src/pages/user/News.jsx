@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { getPublicNews } from "../../services/newsService";
+import logo from "../../assets/Images/logo1.png";
 
 const BASE_BACKEND_URL = import.meta.env.VITE_API_URL.replace("/api", "");
 const IMG_BASE = `${BASE_BACKEND_URL}/uploads`;
@@ -30,7 +31,7 @@ export default function WisataPage() {
               <h1 className="text-2xl font-semibold">Alamora</h1>
             </NavLink>
             <img
-              src="/src/assets/Images/logo1.png"
+              src={logo}
               alt="Logo"
               className="w-10 h-10 rounded-full object-cover"
             />
