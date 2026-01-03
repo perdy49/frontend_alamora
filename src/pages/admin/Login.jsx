@@ -1,5 +1,6 @@
 import { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
+import api from "../../services/api";
 import { useNavigate } from "react-router-dom";
 import bgImage from "../../assets/Images/bg-admin1.jpg";
 
@@ -14,7 +15,7 @@ export default function AdminLogin() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/admin/login", {
+      const res = await api.post("/admin/login", {
         name,
         email,
         password: keyCode
